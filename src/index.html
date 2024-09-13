@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <script src="scripts/main.js"></script>
+  </head>
+  <body>
+    <header
+      class="bg-header-background aspect-1440-667 bg-cover flex flex-col justify-center gap-8">
+      <img
+        src="images/logo.png"
+        alt="Les Petits Plats"
+        class="absolute top-12 left-16" />
+      <h1
+        class="text-5xl font-normal text-custom-yellow text-center max-w-3xl mx-auto font-title leading-[4rem]">
+        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET
+        DÉLICIEUSES
+      </h1>
+      <div class="relative flex items-center mx-auto w-3/4">
+        <input
+          type="text"
+          placeholder="Rechercher une recette, un ingrédient, ..."
+          class="w-full p-6 ps-9 rounded-lg mx-auto font-paragraph" />
+        <button class="absolute right-2.5">
+          <img
+            src="images/icons/search-icon.svg"
+            alt="Search recipe or ingredient" />
+        </button>
+      </div>
+    </header>
+    <main class="bg-custom-grey px-28 pt-5 pb-52">
+      <div class="flex justify-between mb-12">
+        <div class="flex gap-16">
+          <div
+            id="filter-ingredients"
+            class="bg-white rounded-lg py-4 max-h-80 overflow-scroll">
+            <div class="flex justify-between mb-4 px-4">
+              <span>Ingrédients</span>
+              <img
+                src="images/icons/caret.svg"
+                alt="Ingrédients Les Petits Plats" />
+            </div>
+            <div class="relative flex items-center mb-4 pl-4 mr-4">
+              <input
+                class="h-8 rounded border-solid border border-custom-light-grey" />
+              <button class="hidden absolute right-8">
+                <img src="images/icons/cross.svg" alt="Erase text" />
+              </button>
+              <button class="absolute right-2.5">
+                <img
+                  src="images/icons/magnifying-glass.svg"
+                  alt="Search ingredient" />
+              </button>
+            </div>
+            <ul
+              class="flex flex-col gap-3 text-sm mb-3 px-4 py-2 bg-custom-yellow">
+              <li>Crème de coco</li>
+            </ul>
+            <ul class="flex flex-col gap-3 text-sm px-4">
+              <li>Jus de citron</li>
+              <li>Glaçons</li>
+              <li>Tomate</li>
+              <li>Poulet</li>
+              <li>Poivron rouge</li>
+              <li>Thon en miettes</li>
+              <li>Vinaigrette</li>
+            </ul>
+          </div>
+          <div
+            id="filter-appliances"
+            class="bg-white rounded-lg py-4 max-h-80 overflow-scroll">
+            <div class="flex justify-between mb-4 px-4">
+              <span>Appareils</span>
+              <img
+                src="images/icons/caret.svg"
+                alt="Ingrédients Les Petits Plats" />
+            </div>
+            <div class="relative flex items-center mb-4 pl-4 mr-4">
+              <input
+                class="h-8 rounded border-solid border border-custom-light-grey" />
+              <button class="hidden absolute right-8">
+                <img src="images/icons/cross.svg" alt="Erase text" />
+              </button>
+              <button class="absolute right-2.5">
+                <img
+                  src="images/icons/magnifying-glass.svg"
+                  alt="Search ingredient" />
+              </button>
+            </div>
+            <ul
+              class="flex flex-col gap-3 text-sm mb-3 px-4 py-2 bg-custom-yellow">
+              <li>Crème de coco</li>
+            </ul>
+            <ul class="flex flex-col gap-3 text-sm px-4">
+              <li>Jus de citron</li>
+              <li>Glaçons</li>
+              <li>Tomate</li>
+              <li>Poulet</li>
+              <li>Poivron rouge</li>
+              <li>Thon en miettes</li>
+              <li>Vinaigrette</li>
+            </ul>
+          </div>
+          <div
+            id="filter-utensils"
+            class="bg-white rounded-lg py-4 max-h-80 overflow-scroll">
+            <div class="flex justify-between mb-4 px-4">
+              <span>Ustensiles</span>
+              <img
+                src="images/icons/caret.svg"
+                alt="Ingrédients Les Petits Plats" />
+            </div>
+            <div class="relative flex items-center mb-4 pl-4 mr-4">
+              <input
+                class="h-8 rounded border-solid border border-custom-light-grey" />
+              <button class="hidden absolute right-8">
+                <img src="images/icons/cross.svg" alt="Erase text" />
+              </button>
+              <button class="absolute right-2.5">
+                <img
+                  src="images/icons/magnifying-glass.svg"
+                  alt="Search ingredient" />
+              </button>
+            </div>
+            <ul
+              class="flex flex-col gap-3 text-sm mb-3 px-4 py-2 bg-custom-yellow">
+              <li>Crème de coco</li>
+            </ul>
+            <ul class="flex flex-col gap-3 text-sm px-4">
+              <li>Jus de citron</li>
+              <li>Glaçons</li>
+              <li>Tomate</li>
+              <li>Poulet</li>
+              <li>Poivron rouge</li>
+              <li>Thon en miettes</li>
+              <li>Vinaigrette</li>
+            </ul>
+          </div>
+        </div>
+        <span class="text-xl font-normal font-title">1500 recettes</span>
+      </div>
+      <div class="grid grid-cols-3 gap-x-12 gap-y-16">
+        <section class="flex justify-evenly">
+          <div class="bg-white rounded-xl">
+            <img
+              src="images/recipes/Recette01.jpg"
+              alt="Limonade de coco"
+              class="object-cover h-64 w-full rounded-t-xl" />
+            <div class="px-6 pt-8 pb-16">
+              <h2 class="font-normal text-lg font-title mb-8">
+                Limonade de coco
+              </h2>
+              <h3
+                class="text-xs font-bold text-custom-mid-grey mb-4 font-paragraph">
+                RECETTE
+              </h3>
+              <p class="font-normal text-sm mb-8 font-paragraph">
+                Mettre les glaçons à votre goût dans le blender, Ajouter le lait
+                la crème de coco, le jus de 2 citrons et le sucre ensemble.
+                Mixer jusqu'à obtenir la consistance désirée.
+              </p>
+              <h3
+                class="text-xs font-bold text-custom-mid-grey mb-4 font-paragraph">
+                INGRÉDIENTS
+              </h3>
+              <div class="grid grid-cols-2 gap-6 font-paragraph">
+                <div>
+                  <p class="font-medium font-paragraph">Lait de coco</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    400ml
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Jus de citron</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    2
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Crème de coco</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    4 cuillères
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Sucre</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    20g
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Glaçons</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    2
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="flex justify-evenly">
+          <div class="bg-white rounded-xl">
+            <img
+              src="images/recipes/Recette01.jpg"
+              alt="Limonade de coco"
+              class="object-cover h-64 w-full rounded-t-xl" />
+            <div class="px-6 pt-8 pb-16">
+              <h2 class="font-normal text-lg font-title mb-8">
+                Limonade de coco
+              </h2>
+              <h3
+                class="text-xs font-bold text-custom-mid-grey mb-4 font-paragraph">
+                RECETTE
+              </h3>
+              <p class="font-normal text-sm mb-8 font-paragraph">
+                Mettre les glaçons à votre goût dans le blender, Ajouter le lait
+                la crème de coco, le jus de 2 citrons et le sucre ensemble.
+                Mixer jusqu'à obtenir la consistance désirée.
+              </p>
+              <h3
+                class="text-xs font-bold text-custom-mid-grey mb-4 font-paragraph">
+                INGRÉDIENTS
+              </h3>
+              <div class="grid grid-cols-2 gap-6 font-paragraph">
+                <div>
+                  <p class="font-medium font-paragraph">Lait de coco</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    400ml
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Jus de citron</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    2
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Crème de coco</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    4 cuillères
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Sucre</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    20g
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Glaçons</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    2
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="flex justify-evenly">
+          <div class="bg-white rounded-xl">
+            <img
+              src="images/recipes/Recette01.jpg"
+              alt="Limonade de coco"
+              class="object-cover h-64 w-full rounded-t-xl" />
+            <div class="px-6 pt-8 pb-16">
+              <h2 class="font-normal text-lg font-title mb-8">
+                Limonade de coco
+              </h2>
+              <h3
+                class="text-xs font-bold text-custom-mid-grey mb-4 font-paragraph">
+                RECETTE
+              </h3>
+              <p class="font-normal text-sm mb-8 font-paragraph">
+                Mettre les glaçons à votre goût dans le blender, Ajouter le lait
+                la crème de coco, le jus de 2 citrons et le sucre ensemble.
+                Mixer jusqu'à obtenir la consistance désirée.
+              </p>
+              <h3
+                class="text-xs font-bold text-custom-mid-grey mb-4 font-paragraph">
+                INGRÉDIENTS
+              </h3>
+              <div class="grid grid-cols-2 gap-6 font-paragraph">
+                <div>
+                  <p class="font-medium font-paragraph">Lait de coco</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    400ml
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Jus de citron</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    2
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Crème de coco</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    4 cuillères
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Sucre</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    20g
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Glaçons</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    2
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="flex justify-evenly">
+          <div class="bg-white rounded-xl">
+            <img
+              src="images/recipes/Recette01.jpg"
+              alt="Limonade de coco"
+              class="object-cover h-64 w-full rounded-t-xl" />
+            <div class="px-6 pt-8 pb-16">
+              <h2 class="font-normal text-lg font-title mb-8">
+                Limonade de coco
+              </h2>
+              <h3
+                class="text-xs font-bold text-custom-mid-grey mb-4 font-paragraph">
+                RECETTE
+              </h3>
+              <p class="font-normal text-sm mb-8 font-paragraph">
+                Mettre les glaçons à votre goût dans le blender, Ajouter le lait
+                la crème de coco, le jus de 2 citrons et le sucre ensemble.
+                Mixer jusqu'à obtenir la consistance désirée.
+              </p>
+              <h3
+                class="text-xs font-bold text-custom-mid-grey mb-4 font-paragraph">
+                INGRÉDIENTS
+              </h3>
+              <div class="grid grid-cols-2 gap-6 font-paragraph">
+                <div>
+                  <p class="font-medium font-paragraph">Lait de coco</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    400ml
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Jus de citron</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    2
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Crème de coco</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    4 cuillères
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Sucre</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    20g
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium font-paragraph">Glaçons</p>
+                  <p class="text-custom-mid-grey font-normal font-paragraph">
+                    2
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
