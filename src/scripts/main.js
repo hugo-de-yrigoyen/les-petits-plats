@@ -172,14 +172,24 @@ function generateRecipes(recipes) {
 }
 
 function dropdownSearchFilter(unselectedList, filteredList, searchBarInput, recipes) {
-  const selectedElements = Array.from(document.querySelectorAll(".js-dropdown-selected li")).map((li) => li.innerText);
+  const selectedElements = new Set(
+    Array.from(document.querySelectorAll(".js-dropdown-selected li")).map((li) => li.innerText)
+  );
 
-  const searchFilteredList =
-    searchBarInput.trim() === ""
-      ? filteredList
-      : filteredList.filter((el) => el.toLowerCase().includes(searchBarInput.toLowerCase()));
+  const updatedList = [];
+  
+  for (let i = 0; i < filteredList.length; i++) {
+    const el = filteredList[i];
 
-  const updatedList = searchFilteredList.filter((el) => !selectedElements.includes(el));
+    let searchBarEmpty = searchBarInput.trim() === ""
+    let searchBarMatch = el.toLowerCase().includes(searchBarInput.toLowerCase())
+    let matchSearch = searchBarEmpty || searchBarMatch;
+    let elNotSelected = !selectedElements.has(el);
+
+    if (matchSearch && elNotSelected) {
+      updatedList.push(el);
+    }
+  }
 
   generateListElements(updatedList, unselectedList);
   listManager(unselectedList, updatedList, recipes);
