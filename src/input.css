@@ -3,3 +3,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.search-icon {
+    width: 51px;
+    height: 53px;
+    background: url("images/icons/search-icon.svg") no-repeat;
+}
+
+.search-icon:hover {
+    background: url("images/icons/search-icon-hover.svg") no-repeat;
+}
