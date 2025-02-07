@@ -181,24 +181,14 @@ function updateDropdown(getItemsFunction, selectedListClass, unselectedListId, r
 }
 
 function dropdownSearchFilter(unselectedList, filteredList, searchBarInput, recipes) {
-  const selectedElements = new Set(
-    Array.from(document.querySelectorAll(".js-dropdown-selected li")).map((li) => li.innerText)
-  );
+  const selectedElements = Array.from(document.querySelectorAll(".js-dropdown-selected li")).map((li) => li.innerText);
 
-  const updatedList = [];
+  const searchFilteredList =
+    searchBarInput.trim() === ""
+      ? filteredList
+      : filteredList.filter((el) => el.toLowerCase().includes(searchBarInput.toLowerCase()));
 
-  for (let i = 0; i < filteredList.length; i++) {
-    const el = filteredList[i];
-
-    let searchBarEmpty = searchBarInput.trim() === "";
-    let searchBarMatch = el.toLowerCase().includes(searchBarInput.toLowerCase());
-    let matchSearch = searchBarEmpty || searchBarMatch;
-    let elNotSelected = !selectedElements.has(el);
-
-    if (matchSearch && elNotSelected) {
-      updatedList.push(el);
-    }
-  }
+  const updatedList = searchFilteredList.filter((el) => !selectedElements.includes(el));
 
   generateListElements(updatedList, unselectedList);
   listManager(unselectedList, updatedList, recipes);
