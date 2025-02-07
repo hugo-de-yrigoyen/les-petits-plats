@@ -156,19 +156,27 @@ function generateRecipes(recipes) {
   const filteredRecipes = filterRecipes(recipes, activeElements);
   const uniqueFilteredRecipes = Array.from(new Set(filteredRecipes));
 
-  const unselectedIngredients = document.querySelector("#js-dropdown-ingredients");
-  const filteredIngredients = getIngredients(uniqueFilteredRecipes);
-  dropdownSearchFilter(unselectedIngredients, filteredIngredients, searchBarInput, recipes);
+  updateDropdown(getIngredients, ".js-dropdown-selected", "#js-dropdown-ingredients", uniqueFilteredRecipes);
+  listManager(document.querySelector("#js-dropdown-ingredients"), getIngredients(uniqueFilteredRecipes), recipes);
 
-  const unselectedAppliances = document.querySelector("#js-dropdown-appliances");
-  const filteredAppliances = getAppliances(uniqueFilteredRecipes);
-  dropdownSearchFilter(unselectedAppliances, filteredAppliances, searchBarInput, recipes);
+  updateDropdown(getAppliances, ".js-dropdown-selected", "#js-dropdown-appliances", uniqueFilteredRecipes);
+  listManager(document.querySelector("#js-dropdown-appliances"), getAppliances(uniqueFilteredRecipes), recipes);
 
-  const unselectedUstensils = document.querySelector("#js-dropdown-ustensils");
-  const filteredUstensils = getUstensils(uniqueFilteredRecipes);
-  dropdownSearchFilter(unselectedUstensils, filteredUstensils, searchBarInput, recipes);
+  updateDropdown(getUstensils, ".js-dropdown-selected", "#js-dropdown-ustensils", uniqueFilteredRecipes);
+  listManager(document.querySelector("#js-dropdown-ustensils"), getUstensils(uniqueFilteredRecipes), recipes);
 
   generateRecipesHTML(uniqueFilteredRecipes);
+}
+
+function updateDropdown(getItemsFunction, selectedListClass, unselectedListId, recipes) {
+  const selectedElements = new Set(
+    Array.from(document.querySelectorAll(selectedListClass + " li")).map((li) => li.innerText)
+  );
+
+  const unselectedList = document.querySelector(unselectedListId);
+  const filteredItems = getItemsFunction(recipes).filter((el) => !selectedElements.has(el));
+
+  generateListElements(filteredItems, unselectedList);
 }
 
 function dropdownSearchFilter(unselectedList, filteredList, searchBarInput, recipes) {
@@ -191,14 +199,14 @@ function filterRecipes(recipes, activeElements) {
   }
 
   return recipes.filter((recipe) => {
-    return activeElements.every((element) =>
-      recipe.ingredients.some((ing) => ing.ingredient.toLowerCase().includes(element)) ||
-      recipe.appliance.toLowerCase().includes(element) ||
-      recipe.ustensils.some((ustensil) => ustensil.toLowerCase().includes(element))
+    return activeElements.every(
+      (element) =>
+        recipe.ingredients.some((ing) => ing.ingredient.toLowerCase().includes(element)) ||
+        recipe.appliance.toLowerCase().includes(element) ||
+        recipe.ustensils.some((ustensil) => ustensil.toLowerCase().includes(element))
     );
   });
 }
-
 
 function generateRecipesHTML(filteredRecipes) {
   const recipesContainer = document.querySelector("#js-recipes-container");
